@@ -69,9 +69,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-2 text-green-600">Welcome Back</h1>
+    <div className="min-h-screen bg-linear-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white rounded-4xl shadow-xl p-8 sm:p-10 w-full max-w-md">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2 text-green-600 font-display">Welcome Back</h1>
         <p className="text-center text-gray-600 mb-6 text-sm">Login to your account</p>
 
         {message.text && (
@@ -150,7 +150,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition disabled:bg-green-400 disabled:cursor-not-allowed"
+            className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition disabled:bg-green-400 disabled:cursor-not-allowed shadow-lg shadow-green-200 active:scale-[0.98]"
           >
             {loading ? "Logging in..." : "Login"}
           </button>

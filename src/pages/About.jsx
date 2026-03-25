@@ -4,14 +4,14 @@ import { Truck, ShieldCheck, Heart, Clock, Award, Users } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24 animate-fade-in-up">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24 animate-fade-in-up">
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-        <div className="md:w-1/2 space-y-6">
+      <section className="flex flex-col md:flex-row items-center gap-10 sm:gap-12 lg:gap-20">
+        <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-green-50 text-green-600 text-sm font-medium border border-green-100">
             About MyShop
           </div>
-          <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight font-display">
             Our Journey of Bringing <span className="text-transparent bg-clip-text bg-linear-to-r from-green-600 to-emerald-500">Freshness</span> to Your Doorstep
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed italic border-l-4 border-green-500 pl-6 py-2">
@@ -32,14 +32,14 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="md:w-1/2 relative">
-          <div className="absolute -top-10 -right-10 w-48 h-48 bg-green-50 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-emerald-100 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 transform hover:scale-[1.02] transition-transform duration-500 animate-zoom-in">
+        <div className="w-full md:w-1/2 relative mt-8 md:mt-0 px-4 sm:px-0">
+          <div className="absolute -top-10 -right-4 sm:-right-10 w-32 sm:w-48 h-32 sm:h-48 bg-green-50 rounded-full blur-3xl opacity-70 animate-pulse"></div>
+          <div className="absolute -bottom-10 -left-4 sm:-left-10 w-32 sm:w-48 h-32 sm:h-48 bg-emerald-100 rounded-full blur-3xl opacity-70 animate-pulse"></div>
+          <div className="relative rounded-4xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 transform hover:scale-[1.02] transition-transform duration-500 animate-zoom-in">
             <img 
               src={assets.about} 
               alt="Fresh Produce" 
-              className="w-full h-auto"
+              className="w-full h-auto object-cover aspect-4/3 sm:aspect-auto"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
           </div>
@@ -84,8 +84,8 @@ const About = () => {
       </section>
 
       {/* Our Story Grid */}
-      <section className="grid md:grid-cols-2 gap-16 items-center">
-        <div className="grid grid-cols-2 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 order-2 md:order-1">
           <div className="space-y-4 mt-8">
             <div className="bg-green-600 h-64 rounded-2xl overflow-hidden shadow-lg transform translate-y-4">
                <img src={assets.img12} alt="" className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition duration-500" />
@@ -104,13 +104,13 @@ const About = () => {
           </div>
         </div>
         
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <h3 className="text-green-600 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+        <div className="space-y-6 sm:space-y-8 order-1 md:order-2">
+          <div className="space-y-4 text-center md:text-left">
+            <h3 className="text-green-600 font-bold uppercase tracking-wider text-sm flex items-center justify-center md:justify-start gap-2">
               <span className="w-8 h-[2px] bg-green-600"></span>
               The Beginning
             </h3>
-            <h2 className="text-4xl font-bold text-gray-900">It All Started with a Simple Idea.</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-display">It All Started with a Simple Idea.</h2>
             <p className="text-gray-600 leading-relaxed text-lg">
               MyShop was born out of a desire for simplicity in a complicated world. We saw a disconnect between the bounty of nature and the urban consumer. We wanted to make sure that the freshness of the farm was just a click away.
             </p>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { useShop } from "../context/useShop";
 
@@ -26,37 +26,51 @@ const Cart = () => {
   const finalTotal = totalAmount > 0 ? totalAmount + delivery_fee : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-5xl mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">Shopping Cart</h1>
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-gray-800 font-display">Shopping Cart</h1>
 
         {cartData.length > 0 ? (
           <div className="grid md:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="md:col-span-2 space-y-4">
               {cartData.map((item) => {
-                const productData = products.find((p) => p._id === item._id);
+                const productData = products.find((p) => p.id == item._id);
                 if (!productData) return null;
                 return (
-                  <div key={item._id} className="flex gap-6 bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 items-center">
-                    <img src={Array.isArray(productData.image) ? productData.image[0] : productData.image} alt={productData.name} className="w-24 h-24 object-contain rounded-lg shadow-inner bg-slate-50" />
-                    <div className="flex-1">
-                      <h3 className="font-bold text-xl text-gray-800">{productData.name}</h3>
-                      <p className="text-green-600 font-bold text-lg mt-1">{currency}{productData.price}</p>
-                      <div className="flex items-center gap-3 mt-3">
-                        <label className="text-sm text-gray-500">Qty:</label>
+                  <div key={item._id} className="flex flex-col sm:flex-row gap-4 sm:gap-6 bg-white p-4 sm:p-5 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100 items-start sm:items-center relative">
+                    <div className="w-full sm:w-24 h-48 sm:h-24 rounded-xl overflow-hidden bg-slate-50 border border-gray-50 shrink-0">
+                      <img 
+                        src={Array.isArray(productData.image) ? productData.image[0] : productData.image} 
+                        alt={productData.name} 
+                        className="w-full h-full object-contain p-2" 
+                      />
+                    </div>
+                    <div className="flex-1 w-full sm:w-auto">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-bold text-lg sm:text-xl text-gray-800 line-clamp-1">{productData.name}</h3>
+                        <button 
+                          onClick={() => updateQuantity(item._id, 0)}
+                          className="sm:hidden p-2 text-red-500 bg-red-50 hover:bg-red-100 rounded-lg transition"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                      <p className="text-green-600 font-bold text-lg mt-0.5">{currency}{productData.price}</p>
+                      <div className="flex items-center gap-3 mt-3 sm:mt-4 bg-gray-50 w-fit px-3 py-1.5 rounded-xl border border-gray-100">
+                        <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Qty</label>
                         <input 
                           type="number" 
                           min="1"
                           value={item.quantity} 
                           onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, Number(e.target.value))}
-                          className="w-16 border-2 border-gray-100 rounded-lg px-3 py-1 focus:border-green-500 outline-none transition font-medium" 
+                          className="w-12 bg-transparent text-center font-bold text-gray-800 outline-none" 
                         />
                       </div>
                     </div>
                     <button 
                       onClick={() => updateQuantity(item._id, 0)}
-                      className="p-3 text-red-500 bg-red-50 hover:bg-red-100 hover:text-red-600 rounded-xl transition cursor-pointer group"
+                      className="hidden sm:flex p-3 text-red-500 bg-red-50 hover:bg-red-100 hover:text-red-600 rounded-xl transition cursor-pointer group"
                       title="Remove item">
                       <Trash2 size={22} className="group-hover:scale-110 transition" />
                     </button>

@@ -12,12 +12,12 @@ const Shop = () => {
     : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8">Our Shop</h1>
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 font-display">Our Shop</h1>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        <div className="flex flex-wrap gap-2 sm:gap-4 mb-8 sm:mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -34,7 +34,7 @@ const Shop = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredProducts.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}

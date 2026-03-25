@@ -22,9 +22,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-6 text-green-600">Create Account</h1>
+    <div className="min-h-screen bg-linear-to-br from-green-50 to-green-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white rounded-4xl shadow-xl p-8 sm:p-10 w-full max-w-md">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 text-green-600 font-display">Create Account</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 mb-2 font-medium">Name</label>
@@ -90,7 +90,7 @@ const Register = () => {
             </div>
           </div>
 
-          <button type="submit" className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+          <button type="submit" className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition shadow-lg shadow-green-200 active:scale-[0.98]">
             Register
           </button>
         </form>

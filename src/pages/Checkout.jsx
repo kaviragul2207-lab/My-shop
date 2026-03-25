@@ -25,11 +25,11 @@ const Checkout = () => {
   const totalAmount = subtotal > 0 ? subtotal + delivery_fee : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-5xl mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8">Checkout</h1>
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 font-display">Checkout</h1>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {/* Checkout Form */}
           <div className="md:col-span-2">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,7 +136,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <button type="submit" className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition text-lg">
+              <button type="submit" className="w-full bg-green-600 text-white py-4 rounded-xl font-bold hover:bg-green-700 transition text-lg shadow-lg shadow-green-200 active:scale-[0.98]">
                 Place Order
               </button>
             </form>

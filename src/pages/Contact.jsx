@@ -21,9 +21,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fade-in-up">
-      <div className="text-center space-y-4 mb-20 max-w-3xl mx-auto">
-        <h1 className="text-4xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 animate-fade-in-up">
+      <div className="text-center space-y-4 mb-12 sm:mb-20 max-w-3xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight font-display">
           Let’s Start a <span className="text-transparent bg-clip-text bg-linear-to-r from-green-600 to-emerald-500">Conversation</span>
         </h1>
         <p className="text-lg text-gray-600">
@@ -33,8 +33,8 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
         {/* Contact Information Column */}
-        <div className="lg:col-span-1 space-y-8 animate-zoom-in">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 space-y-8">
+        <div className="lg:col-span-1 space-y-6 sm:space-y-8 animate-zoom-in">
+          <div className="bg-white p-6 sm:p-8 rounded-4xl sm:rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 space-y-8">
             <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
               <MessageSquare className="text-green-600" />
               Contact Details
@@ -86,8 +86,8 @@ const Contact = () => {
         </div>
 
         {/* Contact Form Column */}
-        <div className="lg:col-span-2 bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-2xl shadow-slate-200/30 border border-white">
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="lg:col-span-2 bg-white rounded-4xl sm:rounded-[2.5rem] shadow-2xl shadow-slate-200/30 border border-white">
+          <form onSubmit={handleSubmit} className="p-6 sm:p-12 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             <div className="space-y-4">
               <label className="text-sm font-bold text-gray-700 ml-1">Your Full Name</label>
               <input 

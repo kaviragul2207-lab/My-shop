@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import products from '../data/products'
 import { ShoppingCart, ArrowLeft, Star, ShieldCheck, Truck } from 'lucide-react'
@@ -6,11 +6,12 @@ import { useShop } from '../context/useShop'
 
 export default function ProductDetails() {
   const { _id } = useParams()
+  const navigate = useNavigate()
   const [product, setProduct] = useState(null)
-  const { currency } = useShop()
+  const { currency, addToCart } = useShop()
 
   useEffect(() => {
-    const foundProduct = products.find(p => p.id === _id)
+    const foundProduct = products.find(p => p.id == _id)
     setProduct(foundProduct)
     window.scrollTo(0, 0)
   }, [_id])
@@ -28,7 +29,7 @@ export default function ProductDetails() {
 
   return (
     <div className="min-h-screen bg-white pb-20">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Breadcrumb */}
         <Link to="/shop" className="flex items-center gap-2 text-gray-500 hover:text-green-600 transition mb-8 w-fit group">
@@ -55,7 +56,7 @@ export default function ProductDetails() {
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
                 Fresh & Organic
               </span>
-              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mt-4 mb-2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-4 mb-2">
                 {product.name}
               </h1>
               
@@ -66,9 +67,9 @@ export default function ProductDetails() {
                 <span className="text-gray-400 border-l pl-4">4.8 (120 Reviews)</span>
               </div>
 
-              <div className="flex items-baseline gap-4 mb-8">
-                <p className="text-4xl font-black text-green-600">{currency}{product.price}</p>
-                <p className="text-xl text-gray-400 line-through">{currency}{Math.floor(product.price * 1.2)}</p>
+              <div className="flex flex-wrap items-baseline gap-4 mb-8">
+                <p className="text-3xl sm:text-4xl font-black text-green-600">{currency}{product.price}</p>
+                <p className="text-lg sm:text-xl text-gray-400 line-through">{currency}{Math.floor(product.price * 1.2)}</p>
                 <span className="text-red-500 font-bold bg-red-50 px-2 py-1 rounded text-sm">20% OFF</span>
               </div>
 
@@ -78,7 +79,7 @@ export default function ProductDetails() {
             </div>
 
             {/* Features Row */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100">
                 <div className="bg-white p-2 rounded-lg shadow-sm text-green-600">
                   <ShieldCheck size={20} />
@@ -101,7 +102,13 @@ export default function ProductDetails() {
                 <ShoppingCart size={24} />
                 Add to Cart
               </button>
-              <button className="flex-1 bg-gray-900 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center">
+              <button 
+                onClick={() => {
+                  addToCart(product.id);
+                  navigate('/cart');
+                }}
+                className="flex-1 bg-gray-900 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center"
+              >
                 Buy It Now
               </button>
             </div>
